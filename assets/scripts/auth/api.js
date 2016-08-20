@@ -32,8 +32,20 @@ const changePassword = (data) => {
   });
 };
 
+//ajax request to sign a user out, deletes their token
+const signOut = () => {
+  return $.ajax({
+    url: app.api + 'sign-out/' + app.user.id,
+    method: "DELETE",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
+  signOut,
 };
