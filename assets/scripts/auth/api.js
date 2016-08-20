@@ -11,6 +11,16 @@ const signUp = (data) => {
   });
 };
 
+//ajax request for user to sign in
+const signIn = (data) => {
+  return $.ajax({
+    url: app.api + 'sign-in',
+    method: "POST",
+    data,
+  });
+};
+
 module.exports = {
   signUp,
+  signIn,
 };

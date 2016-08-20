@@ -10,4 +10,10 @@ $(() => {
   $('.sign-up-btn').on('click', function(){
     $('.sign-up-modal').modal('hide');
   });
+  $('.select-sign-in').on('click', function(){
+    $('.sign-in-modal').modal('show');
+  });
+  $('.sign-in-btn').on('click', function(){
+    $('.sign-in-modal').modal('hide');
+  });
 });
