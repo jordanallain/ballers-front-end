@@ -5,9 +5,17 @@ const api = require('./api');
 const ui = require('./ui');
 
 const onSignUp = function (event) {
-  let data = getFormFields(this);
   event.preventDefault();
+  let data = getFormFields(this);
   api.signUp(data)
     .done(ui.success)
     .fail(ui.failure);
+};
+
+const addHandlers = () => {
+  $('#sign-up').on('submit', onSignUp);
+};
+
+module.exports = {
+  addHandlers,
 };
