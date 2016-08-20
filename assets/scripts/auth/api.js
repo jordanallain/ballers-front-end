@@ -20,7 +20,20 @@ const signIn = (data) => {
   });
 };
 
+//ajax request to change a user's password
+const changePassword = (data) => {
+  return $.ajax({
+    url: app.api + 'change-password/' + app.user.id,
+    method: "PATCH",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data,
+  });
+};
+
 module.exports = {
   signUp,
   signIn,
+  changePassword,
 };

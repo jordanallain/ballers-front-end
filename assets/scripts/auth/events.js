@@ -25,9 +25,22 @@ const onSignIn = function (event) {
     .fail(ui.failure);
 };
 
+//prevents page from refreshing and calls function from ./api
+//the function it calls from ./api checks to see if old password is correct. if
+//it is it changes the value to the new password
+const onChangePassword = function onChangePassword(event){
+  let data = getFormFields(this);
+  console.log(data);
+  event.preventDefault();
+  api.changePassword(data)
+    .done(ui.success)
+    .fail(ui.failure);
+};
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
+  $('#change-password').on('submit', onChangePassword);
 };
 
 module.exports = {
