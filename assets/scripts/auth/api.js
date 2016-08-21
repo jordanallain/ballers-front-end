@@ -2,6 +2,23 @@
 
 const app = require('../app');
 
+// unfinished
+// const getFavoritePlayers = () => {
+//   return $.ajax({
+//     url: app.api + 'players/'
+//   });
+// };
+
+// ajax request to get all the players
+const getAllPlayers = () => {
+  return $.ajax({
+    url: app.api + 'players',
+    method: "GET",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+  }});
+};
+
 //ajax request to the api to create a new user
 const signUp = (data) => {
   return $.ajax({
@@ -48,4 +65,6 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
+  getAllPlayers,
+  // getFavoritePlayers,
 };
