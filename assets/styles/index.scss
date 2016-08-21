@@ -1,2 +1,13 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+#welcome {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.menu-button {
+  margin-right: 15px;
+  margin-top: 5px;
+}

@@ -1,9 +1,11 @@
 'use strict';
 
-const authEvents = require('./auth/events.js');
+const authEvents = require('./auth/events');
+const playerEvents = require('./player-requests/events');
 
 $(() => {
     authEvents.addHandlers();
+    playerEvents.addHandlers();
   $('.select-sign-up').on('click', function(){
     $('.sign-up-modal').modal('show');
   });
