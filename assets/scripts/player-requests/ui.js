@@ -12,6 +12,10 @@ const failure = (error) => {
 
 const getAllPlayersSuccess = (data) => {
   console.log(data);
+  const displayAllPlayers = require('../templates/display-all-players.handlebars');
+  $('#changing-content').html(displayAllPlayers({
+    players: data
+  }));
 };
 
 
