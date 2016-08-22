@@ -9,6 +9,12 @@ const ui = require('./ui');
 //     .fail(ui.failure);
 // };
 
+const onGetFavoritePlayers = function(){
+  api.getFavoritePlayers()
+    .done(ui.getFavoritePlayersSuccess)
+    .fail(ui.failure);
+};
+
 const onAddPlayer = function(data){
   console.log("onAddPlayer data = " + data);
   api.addPlayer(data)
@@ -24,6 +30,7 @@ const onGetAllPlayers = function(){
 
 const addHandlers = () => {
   $('.get-all-players').on('click', onGetAllPlayers);
+  $('.get-favorites').on('click', onGetFavoritePlayers);
 };
 
 module.exports = {

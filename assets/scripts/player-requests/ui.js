@@ -14,18 +14,17 @@ const failure = (error) => {
 const addPlayerSuccess = (data) => {
   console.log("addPlayerSuccess data = " + data);
   console.log(data.favorite);
-
-  // console.log(data.user_id);
-  // console.log(data.player_id);
 };
 
-// const getFavoritePlayersSuccess = (data) => {
-//   console.log(data);
-//   const displayFavoritePlayers = require('../templates/display-favorite-players.handlebars');
-//   $('#changing-content').html(displayFavoritePlayers({
-//     players: data
-//   }));
-// };
+const getFavoritePlayersSuccess = (data) => {
+  console.log(data);
+  console.log(data.favorites);
+  console.log(data.favorites[0].player);
+  const displayFavoritePlayers = require('../templates/display-favorite-players.handlebars');
+  $('#changing-content').html(displayFavoritePlayers({
+    players: data.favorites
+  }));
+};
 
 const getAllPlayersSuccess = (data) => {
   console.log(data);
@@ -41,5 +40,5 @@ module.exports = {
   failure,
   getAllPlayersSuccess,
   addPlayerSuccess,
-  // getFavoritePlayersSuccess
+  getFavoritePlayersSuccess
 };

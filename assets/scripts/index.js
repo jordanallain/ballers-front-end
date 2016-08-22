@@ -4,8 +4,7 @@ const authEvents = require('./auth/events');
 const playerEvents = require('./player-requests/events');
 
 $(document).on('click','.add_player_button',function(){
-   playerEvents.onAddPlayer(this.id); // run a function to add player to user
-  //  alert( 'success' );
+   playerEvents.onAddPlayer(this.id);
 });
 
 $(() => {

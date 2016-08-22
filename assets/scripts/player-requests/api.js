@@ -3,14 +3,14 @@
 const app = require('../app');
 
 // ajax request to get the players associated with the current user
-// const getFavoritePlayers = () => {
-//   return $.ajax({
-//     url: app.api, // add something to make this go to users specific players,
-//     method: "GET",
-//     headers: {
-//       Authorization: 'Token token=' + app.user.token,
-//     }});
-// };
+const getFavoritePlayers = () => {
+  return $.ajax({
+    url: app.api + 'favorites',
+    method: "GET",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }});
+};
 
 // data is player id number
 const addPlayer = (data) => {
@@ -26,15 +26,6 @@ const addPlayer = (data) => {
         player_id: data
       }
   }});
-};
-
-const getFavoritePlayers = () => {
-  return $.ajax({
-    url: app.api + 'players',
-    method: "GET",
-    headers: {
-      Authorization: 'Token token=' + app.user.token,
-    }});
 };
 
 // ajax request to get all the players

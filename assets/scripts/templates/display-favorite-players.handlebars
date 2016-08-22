@@ -1,20 +1,15 @@
+{{#each players}}
 
-
-<!-- make sure that this is only getting the current users players sent to it -->
-
-
-<!-- {{#each players.players}}
-
-  <h1> Name: {{given_name}} {{surname}}</h1>
-  <h2> Team: {{team}} </h2>
-  <h3> Position: {{position}} </h3>
+  <h1> Name: {{player.given_name}} {{player.surname}}</h1>
+  <h2> Team: {{player.team}} </h2>
+  <h3> Position: {{player.position}} </h3>
   <ul>
-    <li>Points Per Game: {{points_per_game}} </li>
-    <li>Rebounds Per Game: {{rebounds_per_game}} </li>
-    <li>Assists Per Game: {{assists_per_game}} </li>
+    <li>Points Per Game: {{player.points_per_game}} </li>
+    <li>Rebounds Per Game: {{player.rebounds_per_game}} </li>
+    <li>Assists Per Game: {{player.assists_per_game}} </li>
   </ul>
-  <a href="{{twitter}}"><p>twitter</p></a>
-  <a href="{{instagram}}"><p>instagram</p></a>
-<button> Add {{given_name}} </button>
+  <a href="{{player.twitter}}"><p>twitter</p></a>
+  <a href="{{player.instagram}}"><p>instagram</p></a>
+<button id={{id}} class="remove-player-button"> Remove {{player.given_name}} </button>
 
-{{/each}} -->
+{{/each}}
