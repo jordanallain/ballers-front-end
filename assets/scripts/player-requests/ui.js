@@ -1,8 +1,5 @@
 'use strict';
 
-// const app = require('../app');
-// const show = require('../show-functions.js');
-
 const success = (data) => {
   console.log(data);
 };
@@ -17,9 +14,6 @@ const addPlayerSuccess = (data) => {
 };
 
 const getFavoritePlayersSuccess = (data) => {
-  console.log(data);
-  console.log(data.favorites);
-  console.log(data.favorites[0].player);
   const displayFavoritePlayers = require('../templates/display-favorite-players.handlebars');
   $('#changing-content').html(displayFavoritePlayers({
     players: data.favorites
@@ -33,7 +27,6 @@ const getAllPlayersSuccess = (data) => {
     players: data
   }));
 };
-
 
 module.exports = {
   success,

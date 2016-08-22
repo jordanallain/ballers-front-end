@@ -2,6 +2,15 @@
 
 const app = require('../app');
 
+// const getOtherUserLists = () => {
+//   return $.ajax({
+//     url: app.api + 'favorites',
+//     method: "GET",
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     }});
+// };
+
 // ajax request to get the players associated with the current user
 const getFavoritePlayers = () => {
   return $.ajax({
@@ -42,4 +51,5 @@ module.exports = {
   getAllPlayers,
   getFavoritePlayers,
   addPlayer,
+  // getOtherUserLists,
 };
