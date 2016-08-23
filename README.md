@@ -1,35 +1,26 @@
-bALLers
+<h1>bALLers</h1>
 
-Ballers is an app where you can gather your favorite NBA stars in one place. You
+<a href="https://github.com/jordanallain/new-new-ballers-api">bALLers API</a>
+
+<p>Ballers is an app where you can gather your favorite NBA stars in one place. You
 can see their stats and their social media accounts so it is easy to keep up
-to date with their antics.
+to date with their antics.</p>
 
-Code Example
+<h2>Motivation</h2>
 
-Show what the library does as concisely as possible.
-
-Motivation
-
-I wanted to make this app because I don't use social media but a lot of my
+<p>I wanted to make this app because I don't use social media but a lot of my
 favorite NBA stars do. I also wanted to be able to look at one page and see the
-stats of all my favorites instead of having to go to each individual team page.
+stats of all my favorites instead of having to go to each individual team page.</p>
 
-Installation
+<h2>User Stories</h2>
 
-Provide code examples and explanations of how to get the project.
+- As a user I want to see all my favorite players' stats together.
+- As a user I want to be able to browse a list of players to add.
+- As a user I want to be able to edit my list of favorite players.
+- As an admin I want users to be able to see each others' lists without editing.
 
-API Reference
+<h2>ERD</h2>
 
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
+<p>I will have a players table with NBA stars in it. There will also be a user table for people that have signed up. Users can browse a list of players to add to their list of favorites. This will create a many to many relationship between users and players through the favorites table.</p>
 
-Tests
-
-Describe and show how to run the tests with code examples.
-
-Contributors
-
-Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
-
-License
-
-A short snippet describing the license (MIT, Apache, etc.)
+<h2><a href="http://imgur.com/a/z1bRn">Wireframe</a></h2>

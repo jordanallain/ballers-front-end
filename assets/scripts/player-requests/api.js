@@ -26,6 +26,10 @@ const createPlayer = (data) => {
         'team': data.player.team,
         'position': data.player.position,
         'points_per_game': data.player.points_per_game,
+        'rebounds_per_game': data.player.rebounds_per_game,
+        'assists_per_game': data.player.assits_per_game,
+        'twitter': data.player.twitter,
+        'instagram': data.player.instagram
         }
       }
   });
