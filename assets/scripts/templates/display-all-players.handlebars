@@ -2,9 +2,14 @@
 
   <h2> Name: {{given_name}} {{surname}}</h2>
   <h3> Team: {{team}} </h3>
-  <h4> Position: {{position}} </h4>
+  <ul>
+    <li>Points Per Game: {{points_per_game}} </li>
+    <li>Rebounds Per Game: {{rebounds_per_game}} </li>
+    <li>Assists Per Game: {{assists_per_game}} </li>
+  </ul>
 
-<button id={{id}} class="add_player_button"> Add {{given_name}} </button>
+<button id={{id}} class="add-player-button"> Add {{given_name}} </button>
+<button data-value={{id}} class="select-update-player"> Update {{given_name}}</button>
 
 {{/each}}
 

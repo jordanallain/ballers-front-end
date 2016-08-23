@@ -11,6 +11,45 @@ const app = require('../app');
 //     }});
 // };
 
+
+// const updatePlayer = (team, pointsPer, reboundsPer, assistsPer) => {
+//   return $.ajax({
+//     url: app.api + 'players/' + this.id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     },
+//    data: {
+//      "game": {
+//      "cell": {
+//        "index": i,
+//        "value": v
+//      },
+//      "over": g
+//    }
+//   }
+// });
+// }
+
+const updatePlayer = (id, data) => {
+  return $.ajax({
+    url: app.api + 'players/' + id,
+    method: "PATCH",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: {
+      player: {
+        'team': data.player.team,
+        'points_per_game': data.player.points_per_game,
+        'rebounds_per_game': data.player.rebounds_per_game,
+        'assists_per_game': data.player.assists_per_game
+      }
+    }
+  });
+};
+
+// create player ajax call
 const createPlayer = (data) => {
   console.log(data.player.given_name);
   return $.ajax({
@@ -86,4 +125,5 @@ module.exports = {
   addPlayer,
   removePlayer,
   createPlayer,
+  updatePlayer,
 };
