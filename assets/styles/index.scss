@@ -1,32 +1,30 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'colors';
 
 body {
-    background-color: #eeeedd;
-}
-
-#welcome {
-  margin: 0 auto;
-  text-align: center;
+  background-color: $main-background;
 }
 
 .menu-button {
+  background-color: $main-background;
+  border-radius: 0;
   margin-right: 15px;
   margin-top: 7px;
-  border-radius: 0;
-  background-color: #eeeedd;
 }
 
 .menu-button:hover {
-  background-color: #eeeedd;
+  background-color: $main-background;
 }
 
-#changing-content {
+.changing-content h1 {
+  margin: 0 auto;
   margin-top: 50px;
+  text-align: center;
 }
 
 .navbar {
-  background-color: #555555;
+  background-color: $navbar-background;
 }
 
 .dropdown-li {
@@ -34,9 +32,9 @@ body {
 }
 
 li a:hover {
-  background-color: #eeeedd;
+  background-color: $main-background;
 }
 
 .dropdown-menu {
-  background-color: #eeeedd;
+  background-color: $main-background;
 }
