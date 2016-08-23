@@ -12,13 +12,13 @@
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle navbar-right menu-button" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Menu</button>
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-          <li class="dropdown-li"><a class="select-sign-up">Sign Up</a></li>
-          <li class="dropdown-li"><a class="select-sign-in">Sign In</a></li>
-          <li class="dropdown-li"><a class="select-change-password">Change Password</a></li>
-          <li class="dropdown-li"><a class="select-sign-out">Sign Out</a></li>
-          <li class="dropdown-li"><a class="get-all-players">Choose Ballers</a></li>
-          <li class="dropdown-li"><a class="get-favorites">See Your Ballers</a></li>
-          <li class="dropdown-li"><a class="see-other-users">See Other Users</a></li>
+          <li class="dropdown-li"><a id="select-sign-up">Sign Up</a></li>
+          <li class="dropdown-li"><a id="select-sign-in">Sign In</a></li>
+          <li class="dropdown-li"><a id="select-change-password">Change Password</a></li>
+          <li class="dropdown-li"><a id="select-sign-out">Sign Out</a></li>
+          <li class="dropdown-li"><a id="get-all-players">Choose Ballers</a></li>
+          <li class="dropdown-li"><a id="get-favorites">See Your Ballers</a></li>
+          <li class="dropdown-li"><a id="select-create-player">Create New Player</a></li>
         </ul>
       </div>
     </nav>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- SIGN UP MODAL -->
-    <div class="sign-up-modal modal fade" tabindex="-1" role="dialog">
+    <div id="sign-up-modal" class="modal fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -52,7 +52,7 @@
     <!-- END SIGN UP MODAL -->
 
       <!-- SIGN IN MODAL -->
-      <div class="sign-in-modal modal fade" tabindex="-1" role="dialog">
+      <div id="sign-in-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -75,7 +75,7 @@
       <!-- END SIGN IN MODAL -->
 
       <!-- CHANGE PASSWORD MODAL -->
-      <div class="change-password-modal modal fade" tabindex="-1" role="dialog">
+      <div id="change-password-modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -98,6 +98,38 @@
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
     <!-- END CHANGE PASSWORD MODAL -->
+
+    <!-- CREATE PLAYER MODAL -->
+    <div id="create-player-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Create A New Player</h4>
+          </div>
+          <div class="modal-body">
+            <form id="create-player">
+              <fieldset>
+                <input name="player[given_name]"type="text" placeholder="Given Name">
+                <input name="player[surname]" type="text" placeholder="Surname">
+                <input name="player[team]" type="text" placeholder="Team">
+                <input name="player[position]" type="text" placeholder="Position">
+                <input name="player[points_per_game]" type="number" placeholder="Points Per Game">
+                <input name="rebounds_per_game"type="number" placeholder="Rebounds Per Game">
+                <input name="player[assists_per_game]" type="number" placeholder="Assists Per Game">
+                <input name="player[twitter]" type="text" placeholder="Twitter">
+                <input name="player[instagram]" type="text" placeholder="Instagram">
+                <input type="submit" name="submit" class= "create-player-btn" value="Create">
+              </fieldset>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  <!-- END CHANGE PASSWORD MODAL -->
 
   </body>
 </html>

@@ -11,6 +11,26 @@ const app = require('../app');
 //     }});
 // };
 
+const createPlayer = (data) => {
+  console.log(data.player.given_name);
+  return $.ajax({
+    url: app.api + 'players',
+    method: "POST",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: {
+      player: {
+        'given_name': data.player.given_name,
+        'surname': data.player.surname,
+        'team': data.player.team,
+        'position': data.player.position,
+        'points_per_game': data.player.points_per_game,
+        }
+      }
+  });
+};
+
 const removePlayer = (data) => {
   return $.ajax({
     url: app.api + 'favorites/' + data,
@@ -61,4 +81,5 @@ module.exports = {
   getFavoritePlayers,
   addPlayer,
   removePlayer,
+  createPlayer,
 };
