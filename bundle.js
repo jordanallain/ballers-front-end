@@ -286,6 +286,7 @@ webpackJsonp([0],[
 	};
 
 	var signOutSuccess = function signOutSuccess() {
+	  console.log("Signed out");
 	  console.log(app.user);
 	  delete app.user;
 	  console.log(app.user);
