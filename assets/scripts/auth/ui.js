@@ -16,6 +16,7 @@ const signInSuccess = (data) => {
 };
 
 const signOutSuccess = () => {
+  console.log("Signed out");
   console.log(app.user);
   delete app.user;
   console.log(app.user);
