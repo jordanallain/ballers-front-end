@@ -12,6 +12,7 @@ const failure = (error) => {
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  console.log("Signed in");
 };
 
 const signOutSuccess = () => {
