@@ -8,6 +8,10 @@ const failure = (error) => {
   console.error(error);
 };
 
+const removePlayerSuccess = (data) => {
+  console.log(data);
+};
+
 const addPlayerSuccess = (data) => {
   console.log("addPlayerSuccess data = " + data);
   console.log(data.favorite);
@@ -33,5 +37,6 @@ module.exports = {
   failure,
   getAllPlayersSuccess,
   addPlayerSuccess,
-  getFavoritePlayersSuccess
+  getFavoritePlayersSuccess,
+  removePlayerSuccess,
 };

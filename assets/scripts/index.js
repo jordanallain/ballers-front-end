@@ -3,8 +3,12 @@
 const authEvents = require('./auth/events');
 const playerEvents = require('./player-requests/events');
 
-$(document).on('click','.add_player_button',function(){
+$(document).on('click', '.add_player_button', function(){
    playerEvents.onAddPlayer(this.id);
+});
+
+$(document).on('click', '.remove_player_button', function(){
+  playerEvents.onRemovePlayer(this.id);
 });
 
 $(() => {

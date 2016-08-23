@@ -11,6 +11,15 @@ const app = require('../app');
 //     }});
 // };
 
+const removePlayer = (data) => {
+  return $.ajax({
+    url: app.api + 'favorites/' + data,
+    method: "DELETE",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    }});
+};
+
 // ajax request to get the players associated with the current user
 const getFavoritePlayers = () => {
   return $.ajax({
@@ -51,5 +60,5 @@ module.exports = {
   getAllPlayers,
   getFavoritePlayers,
   addPlayer,
-  // getOtherUserLists,
+  removePlayer,
 };

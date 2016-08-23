@@ -9,6 +9,12 @@ const ui = require('./ui');
 //     .fail(ui.failure);
 // };
 
+const onRemovePlayer = function(data){
+  api.removePlayer(data)
+    .done(ui.removePlayerSuccess)
+    .fail(ui.failure);
+};
+
 const onGetFavoritePlayers = function(){
   api.getFavoritePlayers()
     .done(ui.getFavoritePlayersSuccess)
@@ -37,4 +43,5 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   onAddPlayer,
+  onRemovePlayer,
 };
