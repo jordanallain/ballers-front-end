@@ -3,12 +3,16 @@
 const authEvents = require('./auth/events');
 const playerEvents = require('./player-requests/events');
 
-$(document).on('click', '.add_player_button', function(){
+$(document).on('click', '.add-player-button', function(){
    playerEvents.onAddPlayer(this.id);
 });
 
-$(document).on('click', '.remove_player_button', function(){
+$(document).on('click', '.remove-player-button', function(){
   playerEvents.onRemovePlayer(this.id);
+});
+
+$(document).on('click', '.select-update-player', function(){
+  $('#update-player-modal').modal('show');
 });
 
 $(() => {
@@ -37,5 +41,8 @@ $(() => {
   });
   $('.create-player-btn').on('click', function(){
     $('#create-player-modal').modal('hide');
+  });
+  $('.update-player-button').on('click', function(){
+    $('#update-player-modal').modal('hide');
   });
 });
