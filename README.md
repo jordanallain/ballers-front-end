@@ -1,6 +1,6 @@
 <h1>bALLers</h1>
 
-<a href="https://github.com/jordanallain/new-new-ballers-api">bALLers API</a>
+<a href="https://github.com/jordanallain/ballers-api">bALLers API</a>
 
 <p>Ballers is an app where you can gather your favorite NBA stars in one place. You
 can see their stats and their social media accounts so it is easy to keep up
