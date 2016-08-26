@@ -29,7 +29,8 @@ webpackJsonp([0],[
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	var authEvents = __webpack_require__(3);
+	var getFormFields = __webpack_require__(3);
+	var authEvents = __webpack_require__(4);
 	var playerEvents = __webpack_require__(8);
 
 	$(document).on('click', '.add-player-button', function () {
@@ -40,8 +41,13 @@ webpackJsonp([0],[
 	  playerEvents.onRemovePlayer(this.id);
 	});
 
-	$(document).on('click', '.select-update-player', function () {
-	  $('#update-player-modal').modal('show');
+	$(document).on('submit', '.update-player', function (event) {
+	  event.preventDefault();
+	  // let data = $('#updt').prop('value');
+	  var data = getFormFields(this);
+	  var newTeam = data.player.team;
+	  var id = $(this).data('value');
+	  playerEvents.onUpdatePlayer(id, newTeam);
 	});
 
 	$(function () {
@@ -71,71 +77,15 @@ webpackJsonp([0],[
 	  $('.create-player-btn').on('click', function () {
 	    $('#create-player-modal').modal('hide');
 	  });
-	  $('.update-player-button').on('click', function () {
-	    $('#update-player-modal').modal('hide');
-	  });
+	  // $('.update-player-button').on('click', function(){
+	  //   $('#update-player-modal').modal('hide');
+	  // });
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 2 */,
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-
-	var getFormFields = __webpack_require__(4);
-	var api = __webpack_require__(5);
-	var ui = __webpack_require__(7);
-
-	//prevents page from refreshing and calls a function from ./api
-	//the function it calls from ./api sends an ajax request to sign a new user up
-	var onSignUp = function onSignUp(event) {
-	  event.preventDefault();
-	  var data = getFormFields(this);
-	  api.signUp(data).done(ui.success).fail(ui.failure);
-	};
-
-	//prevents page from refreshing and calls function from ./api
-	//the function it calls from ./api checks to see if user exists, if they do it
-	//logs them in
-	var onSignIn = function onSignIn(event) {
-	  var data = getFormFields(this);
-	  event.preventDefault();
-	  api.signIn(data).done(ui.signInSuccess).fail(ui.failure);
-	};
-
-	//prevents page from refreshing and calls function from ./api
-	//the function it calls from ./api checks to see if old password is correct. if
-	//it is it changes the value to the new password
-	var onChangePassword = function onChangePassword(event) {
-	  var data = getFormFields(this);
-	  console.log(data);
-	  event.preventDefault();
-	  api.changePassword(data).done(ui.success).fail(ui.failure);
-	};
-
-	//prevents page from refreshing and calls function from ./api
-	//the function it calls from ./api deletes the token attached to the user
-	var onSignOut = function onSignOut(event) {
-	  event.preventDefault();
-	  api.signOut().done(ui.signOutSuccess).fail(ui.failure);
-	};
-
-	var addHandlers = function addHandlers() {
-	  $('#sign-up').on('submit', onSignUp);
-	  $('#sign-in').on('submit', onSignIn);
-	  $('#change-password').on('submit', onChangePassword);
-	  $('#select-sign-out').on('click', onSignOut);
-	};
-
-	module.exports = {
-	  addHandlers: addHandlers
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 4 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -198,6 +148,62 @@ webpackJsonp([0],[
 	};
 
 	module.exports = getFormFields;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	var getFormFields = __webpack_require__(3);
+	var api = __webpack_require__(5);
+	var ui = __webpack_require__(7);
+
+	//prevents page from refreshing and calls a function from ./api
+	//the function it calls from ./api sends an ajax request to sign a new user up
+	var onSignUp = function onSignUp(event) {
+	  event.preventDefault();
+	  var data = getFormFields(this);
+	  api.signUp(data).done(ui.success).fail(ui.failure);
+	};
+
+	//prevents page from refreshing and calls function from ./api
+	//the function it calls from ./api checks to see if user exists, if they do it
+	//logs them in
+	var onSignIn = function onSignIn(event) {
+	  var data = getFormFields(this);
+	  event.preventDefault();
+	  api.signIn(data).done(ui.signInSuccess).fail(ui.failure);
+	};
+
+	//prevents page from refreshing and calls function from ./api
+	//the function it calls from ./api checks to see if old password is correct. if
+	//it is it changes the value to the new password
+	var onChangePassword = function onChangePassword(event) {
+	  var data = getFormFields(this);
+	  console.log(data);
+	  event.preventDefault();
+	  api.changePassword(data).done(ui.success).fail(ui.failure);
+	};
+
+	//prevents page from refreshing and calls function from ./api
+	//the function it calls from ./api deletes the token attached to the user
+	var onSignOut = function onSignOut(event) {
+	  event.preventDefault();
+	  api.signOut().done(ui.signOutSuccess).fail(ui.failure);
+	};
+
+	var addHandlers = function addHandlers() {
+	  $('#sign-up').on('submit', onSignUp);
+	  $('#sign-in').on('submit', onSignIn);
+	  $('#change-password').on('submit', onChangePassword);
+	  $('#select-sign-out').on('click', onSignOut);
+	};
+
+	module.exports = {
+	  addHandlers: addHandlers
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 5 */
@@ -314,14 +320,16 @@ webpackJsonp([0],[
 
 	var api = __webpack_require__(9);
 	var ui = __webpack_require__(10);
-	var getFormFields = __webpack_require__(4);
+	var getFormFields = __webpack_require__(3);
 
-	var onUpdatePlayer = function onUpdatePlayer(event) {
-	  event.preventDefault();
-	  var id = $('.select-update-player').data('value');
-	  console.log(id);
-	  var data = getFormFields(this);
-	  api.updatePlayer(id, data).done(ui.success).fail(ui.failure);
+	var onUpdatePlayer = function onUpdatePlayer(id, newTeam) {
+	  console.log("did i get here");
+	  // debugger;
+	  // event.preventDefault();
+	  // const id = $('.select-update-player').data('value');
+	  // console.log(id);
+	  // const data = getFormFields(this);
+	  api.updatePlayer(id, newTeam).done(ui.success).fail(ui.failure);
 	};
 
 	var onCreatePlayer = function onCreatePlayer(event) {
@@ -358,7 +366,8 @@ webpackJsonp([0],[
 	module.exports = {
 	  addHandlers: addHandlers,
 	  onAddPlayer: onAddPlayer,
-	  onRemovePlayer: onRemovePlayer
+	  onRemovePlayer: onRemovePlayer,
+	  onUpdatePlayer: onUpdatePlayer
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
@@ -370,36 +379,7 @@ webpackJsonp([0],[
 
 	var app = __webpack_require__(6);
 
-	// const getOtherUserLists = () => {
-	//   return $.ajax({
-	//     url: app.api + 'favorites',
-	//     method: "GET",
-	//     headers: {
-	//       Authorization: 'Token token=' + app.user.token,
-	//     }});
-	// };
-
-
-	// const updatePlayer = (team, pointsPer, reboundsPer, assistsPer) => {
-	//   return $.ajax({
-	//     url: app.api + 'players/' + this.id,
-	//     method: 'PATCH',
-	//     headers: {
-	//       Authorization: 'Token token=' + app.user.token,
-	//     },
-	//    data: {
-	//      "game": {
-	//      "cell": {
-	//        "index": i,
-	//        "value": v
-	//      },
-	//      "over": g
-	//    }
-	//   }
-	// });
-	// }
-
-	var updatePlayer = function updatePlayer(id, data) {
+	var updatePlayer = function updatePlayer(id, newTeam) {
 	  return $.ajax({
 	    url: app.api + 'players/' + id,
 	    method: "PATCH",
@@ -408,10 +388,7 @@ webpackJsonp([0],[
 	    },
 	    data: {
 	      player: {
-	        'team': data.player.team,
-	        'points_per_game': data.player.points_per_game,
-	        'rebounds_per_game': data.player.rebounds_per_game,
-	        'assists_per_game': data.player.assists_per_game
+	        'team': newTeam
 	      }
 	    }
 	  });
@@ -1783,26 +1760,15 @@ webpackJsonp([0],[
 	    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
 	    + " class=\"add-player-button\"> Add "
 	    + alias4(((helper = (helper = helpers.given_name || (depth0 != null ? depth0.given_name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"given_name","hash":{},"data":data}) : helper)))
-	    + " </button>\n<button data-value="
+	    + " </button>\n\n<form data-value="
 	    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-	    + " class=\"select-update-player\"> Update "
+	    + " class=\"update-player\">\n  <fieldset>\n    <input id=\"updt\" type=\"text\" name=\"player[team]\" placeholder= \"Player's New Team\">\n    <input type=\"submit\" name=\"submit\" class= \"update-player-btn\" value=\"Update "
 	    + alias4(((helper = (helper = helpers.given_name || (depth0 != null ? depth0.given_name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"given_name","hash":{},"data":data}) : helper)))
-	    + "</button>\n\n";
+	    + "\">\n  </fieldset>\n</form>\n\n";
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+	    var stack1;
 
-	  return ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.players : depth0)) != null ? stack1.players : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-	    + "\n\n\n\n\n\n\n\n\n<!-- <ul>\n  <li>Points Per Game: "
-	    + alias4(((helper = (helper = helpers.points_per_game || (depth0 != null ? depth0.points_per_game : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"points_per_game","hash":{},"data":data}) : helper)))
-	    + " </li>\n  <li>Rebounds Per Game: "
-	    + alias4(((helper = (helper = helpers.rebounds_per_game || (depth0 != null ? depth0.rebounds_per_game : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"rebounds_per_game","hash":{},"data":data}) : helper)))
-	    + " </li>\n  <li>Assists Per Game: "
-	    + alias4(((helper = (helper = helpers.assists_per_game || (depth0 != null ? depth0.assists_per_game : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"assists_per_game","hash":{},"data":data}) : helper)))
-	    + " </li>\n</ul>\n<a href=\""
-	    + alias4(((helper = (helper = helpers.twitter || (depth0 != null ? depth0.twitter : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"twitter","hash":{},"data":data}) : helper)))
-	    + "\"><p>twitter</p></a>\n<a href=\""
-	    + alias4(((helper = (helper = helpers.instagram || (depth0 != null ? depth0.instagram : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"instagram","hash":{},"data":data}) : helper)))
-	    + "\"><p>instagram</p></a> -->\n";
+	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.players : depth0)) != null ? stack1.players : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 	},"useData":true});
 
 /***/ },
@@ -2201,7 +2167,7 @@ webpackJsonp([0],[
 /* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["getFormFields"] = __webpack_require__(4);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["getFormFields"] = __webpack_require__(3);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ }
