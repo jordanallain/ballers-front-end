@@ -9,22 +9,12 @@
   </ul>
 
 <button id={{id}} class="add-player-button"> Add {{given_name}} </button>
-<button data-value={{id}} class="select-update-player"> Update {{given_name}}</button>
+
+<form data-value={{id}} class="update-player">
+  <fieldset>
+    <input id="updt" type="text" name="player[team]" placeholder= "Player's New Team">
+    <input type="submit" name="submit" class= "update-player-btn" value="Update {{given_name}}">
+  </fieldset>
+</form>
 
 {{/each}}
-
-
-
-
-
-
-
-
-
-<!-- <ul>
-  <li>Points Per Game: {{points_per_game}} </li>
-  <li>Rebounds Per Game: {{rebounds_per_game}} </li>
-  <li>Assists Per Game: {{assists_per_game}} </li>
-</ul>
-<a href="{{twitter}}"><p>twitter</p></a>
-<a href="{{instagram}}"><p>instagram</p></a> -->

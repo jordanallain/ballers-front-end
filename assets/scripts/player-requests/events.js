@@ -4,12 +4,14 @@ const api = require('./api');
 const ui = require('./ui');
 const getFormFields = require('../../../lib/get-form-fields');
 
-const onUpdatePlayer = function(event){
-  event.preventDefault();
-  const id = $('.select-update-player').data('value');
-  console.log(id);
-  const data = getFormFields(this);
-  api.updatePlayer(id, data)
+const onUpdatePlayer = function(id, newTeam){
+  console.log("did i get here");
+  // debugger;
+  // event.preventDefault();
+  // const id = $('.select-update-player').data('value');
+  // console.log(id);
+  // const data = getFormFields(this);
+  api.updatePlayer(id, newTeam)
     .done(ui.success)
     .fail(ui.failure);
 };
@@ -59,4 +61,5 @@ module.exports = {
   addHandlers,
   onAddPlayer,
   onRemovePlayer,
+  onUpdatePlayer,
 };
