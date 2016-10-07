@@ -4,6 +4,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 body {
   background-color: $main-background;
+  padding-top: 40px;
+}
+
+.add-player-button {
+  padding: 10px;
 }
 
 .menu-button {
