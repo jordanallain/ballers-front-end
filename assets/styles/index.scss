@@ -22,6 +22,10 @@ body {
   background-color: $main-background;
 }
 
+li {
+  list-style: none;
+}
+
 .changing-content h1 {
   margin: 0 auto;
   margin-top: 50px;
