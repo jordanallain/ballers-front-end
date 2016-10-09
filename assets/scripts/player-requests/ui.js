@@ -22,6 +22,7 @@ const getFavoritePlayersSuccess = (data) => {
   $('#changing-content').html(displayFavoritePlayers({
     players: data.favorites
   }));
+  
 };
 
 const getAllPlayersSuccess = (data) => {

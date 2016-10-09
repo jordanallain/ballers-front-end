@@ -8,8 +8,14 @@
     <li>Rebounds Per Game: {{player.rebounds_per_game}} </li>
     <li>Assists Per Game: {{player.assists_per_game}} </li>
   </ul>
+  <a href="{{player.twitter}}"><div class="twitter"></div></a>
+  <a href="{{player.instagram}}"><div class="instagram"></div></a>
+
+  <!--<a href="{{player.twitter}}"><img src="../styles/images/twitter.svg"></a>
+  <a href="{{player.instagram}}"><img src="../styles/images/instagram.svg"></a>
+
   <a href="{{player.twitter}}"><p>twitter</p></a>
-  <a href="{{player.instagram}}"><p>instagram</p></a>
+  <a href="{{player.instagram}}"><p>instagram</p></a>-->
 <button id={{id}} class="remove-player-button"> Remove {{player.given_name}} </button>
 
 {{/each}}

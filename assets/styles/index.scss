@@ -2,19 +2,76 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'colors';
 
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+
 body {
-  background-color: $main-background;
+  background: url('./images/bball1.jpg') no-repeat center;
+  background-size: cover;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  font-family: 'Karla', sans-serif;
+}
+
+.instagram {
+  background: url('./images/instagram.svg') no-repeat center;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+}
+
+.twitter {
+  background: url('./images/twitter.svg') no-repeat center;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+}
+
+.navbar-default {
+  border: 0;
+}
+
+.add-player-button {
+  padding: 10px;
+}
+
+.remove-player-button {
+  display: block;
+}
+
+h1 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 5rem;
 }
 
 .menu-button {
-  background-color: $main-background;
+  background-color: #000;
   border-radius: 0;
   margin-right: 15px;
+  color: #fff;
   margin-top: 7px;
 }
 
 .menu-button:hover {
-  background-color: $main-background;
+  background-color: #000;
+  color: #aaa;
+}
+
+li {
+  list-style: none;
+}
+
+.changing-content{
+  color: #fff;
 }
 
 .changing-content h1 {
@@ -24,17 +81,22 @@ body {
 }
 
 .navbar {
-  background-color: $navbar-background;
+  background-color: black;
 }
 
 .dropdown-li {
   cursor: pointer;
 }
 
+.dropdown-menu > li > a {
+  color: #fff;
+}
+
 li a:hover {
-  background-color: $main-background;
+  background-color: $custard;
 }
 
 .dropdown-menu {
-  background-color: $main-background;
+  background-color: #000;
+  color: #fff;
 }
