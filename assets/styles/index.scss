@@ -12,6 +12,7 @@ body {
   background-size: cover;
   padding-top: 40px;
   padding-bottom: 20px;
+  font-family: 'Karla', sans-serif;
 }
 
 .instagram {
@@ -31,8 +32,8 @@ body {
 }
 
 button {
-  background-color: $custard;
-  color: black;
+  background-color: #000;
+  color: #fff;
 }
 
 .navbar-default {
@@ -47,15 +48,22 @@ button {
   display: block;
 }
 
+h1 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 5rem;
+}
+
 .menu-button {
-  background-color: $custard;
+  background-color: #000;
   border-radius: 0;
   margin-right: 15px;
+  color: #fff;
   margin-top: 7px;
 }
 
 .menu-button:hover {
-  background-color: $custard;
+  background-color: #000;
+  color: #aaa;
 }
 
 li {
@@ -63,7 +71,7 @@ li {
 }
 
 .changing-content{
-  color: white;
+  color: #fff;
 }
 
 .changing-content h1 {
@@ -80,10 +88,15 @@ li {
   cursor: pointer;
 }
 
+.dropdown-menu > li > a {
+  color: #fff;
+}
+
 li a:hover {
   background-color: $custard;
 }
 
 .dropdown-menu {
-  background-color: $custard;
+  background-color: #000;
+  color: #fff;
 }
