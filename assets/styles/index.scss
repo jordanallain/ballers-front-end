@@ -2,28 +2,68 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'colors';
 
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+
 body {
-  background-color: $main-background;
+  background: url('./images/bball1.jpg') no-repeat center;
+  background-size: cover;
   padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.instagram {
+  background: url('./images/instagram.svg') no-repeat center;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+}
+
+.twitter {
+  background: url('./images/twitter.svg') no-repeat center;
+  background-size: cover;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+}
+
+button {
+  background-color: $custard;
+  color: black;
+}
+
+.navbar-default {
+  border: 0;
 }
 
 .add-player-button {
   padding: 10px;
 }
 
+.remove-player-button {
+  display: block;
+}
+
 .menu-button {
-  background-color: $main-background;
+  background-color: $custard;
   border-radius: 0;
   margin-right: 15px;
   margin-top: 7px;
 }
 
 .menu-button:hover {
-  background-color: $main-background;
+  background-color: $custard;
 }
 
 li {
   list-style: none;
+}
+
+.changing-content{
+  color: white;
 }
 
 .changing-content h1 {
@@ -33,7 +73,7 @@ li {
 }
 
 .navbar {
-  background-color: $navbar-background;
+  background-color: black;
 }
 
 .dropdown-li {
@@ -41,9 +81,9 @@ li {
 }
 
 li a:hover {
-  background-color: $main-background;
+  background-color: $custard;
 }
 
 .dropdown-menu {
-  background-color: $main-background;
+  background-color: $custard;
 }
